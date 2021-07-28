@@ -1,5 +1,8 @@
 package programmers.kits.dfsbfs;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * 깊이/너비 우선 탐색(DFS/BFS)
  * Level 3
@@ -20,7 +23,8 @@ public class 네트워크 {
 
         for (int i = 0; i < n; i++) {
             if (!checked[i]) {
-                dfs(n, computers, i, checked);
+//                dfs(n, computers, i, checked);
+                bfs(n, computers, i, checked);
                 count += 1;
             }
         }
@@ -34,10 +38,27 @@ public class 네트워크 {
 
         for (int i = 0; i < n; i++) {
             if (!checked[i] && depth != i && computers[depth][i] == 1)
-                checked = dfs(n, computers, i, checked);
+                dfs(n, computers, i, checked);
         }
 
         return checked;
+    }
+
+    private static void bfs(int n, int[][] computers, int index, boolean[] checked) {
+        Queue<Integer> q = new LinkedList<>();
+        q.add(index);
+
+        while (!q.isEmpty()) {
+            int cur = q.poll();
+            checked[cur] = true;
+
+            for (int i = 0; i < n; i++) {
+                if(!checked[i] && index != i && computers[cur][i] == 1)
+                    q.add(i);
+            }
+
+        }
+
     }
 
 }
