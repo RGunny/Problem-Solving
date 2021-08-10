@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
  * 문자열 폭발
  * https://www.acmicpc.net/problem/9935
  */
-public class 문자열폭발_V2 {
+public class BOJ_9935_문자열폭발_V2 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
