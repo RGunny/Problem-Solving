@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 /**
- * DP
+ * BFS, DFS, 이분 탐색, 투 포인터
  * Platinum 4
  * 집배원 한상덕
  * https://www.acmicpc.net/problem/2842
