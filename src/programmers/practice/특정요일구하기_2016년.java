@@ -1,4 +1,4 @@
-package programmers;
+package programmers.practice;
 
 /**
  * 연습문제
