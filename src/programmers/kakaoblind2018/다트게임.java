@@ -1,5 +1,10 @@
 package programmers.kakaoblind2018;
 
+/**
+ * 2018 KAKAO BLIND RECRUITMENT
+ * 다크 게임
+ * https://programmers.co.kr/learn/courses/30/lessons/17682
+ */
 public class 다트게임 {
     public static void main(String[] args) {
 //        String dartResult = "1S2D*3T"; // 37
