@@ -11,7 +11,7 @@ import java.util.StringTokenizer;
  * 동전 1
  * https://www.acmicpc.net/problem/2293
  */
-public class BOJ_2294_동전1 {
+public class BOJ_2293_동전1 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
