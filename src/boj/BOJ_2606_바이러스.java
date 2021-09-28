@@ -16,6 +16,7 @@ import java.util.StringTokenizer;
 public class BOJ_2606_바이러스 {
     private static boolean[][] computers;
     private static boolean[] visited;
+    private static int count = 0;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -24,27 +25,41 @@ public class BOJ_2606_바이러스 {
         int N = Integer.parseInt(br.readLine());
         int K = Integer.parseInt(br.readLine());
 
-        computers = new boolean[N][N];
-        visited = new boolean[N];
+        computers = new boolean[N + 1][N + 1];
+        visited = new boolean[N + 1];
 
         for (int i = 0; i < K; i++) {
             st = new StringTokenizer(br.readLine());
-            int a = Integer.parseInt(st.nextToken()) - 1;
-            int b = Integer.parseInt(st.nextToken()) - 1;
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
             computers[a][b] = true;
             computers[b][a] = true;
         }
 
-        int answer = bfs(N);
-        System.out.println(answer);
+//        int answer = bfs(N);
+//        System.out.println(answer);
+        dfs(1, N);
+        System.out.println(count);
+    }
+
+    private static void dfs(int depth, int N) {
+        if (visited[depth]) return;
+
+        visited[depth] = true;
+
+        for (int i = 1; i <= N; i++) {
+            if (!computers[depth][i] || visited[i]) continue;
+            count++;
+            dfs(i, N);
+        }
     }
 
     private static int bfs(int N) {
         Queue<Integer> q = new LinkedList<>();
-        q.add(0);
-        visited[0] = true;
+        q.add(1);
+        visited[1] = true;
 
-        int count = 0;
+        int cnt = 0;
 
         while (!q.isEmpty()) {
             int cur = q.poll();
@@ -53,11 +68,11 @@ public class BOJ_2606_바이러스 {
                 if (!computers[cur][i] || visited[i]) continue;
                 q.add(i);
                 visited[i] = true;
-                count++;
+                cnt++;
             }
 
         }
-        return count;
+        return cnt;
     }
 
 
