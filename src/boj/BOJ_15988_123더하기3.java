@@ -11,7 +11,8 @@ import java.io.InputStreamReader;
  * https://www.acmicpc.net/problem/15988
  */
 public class BOJ_15988_123더하기3 {
-    private static final int MOD = 1000000009;
+    private static final long MOD = 1000000009L;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
