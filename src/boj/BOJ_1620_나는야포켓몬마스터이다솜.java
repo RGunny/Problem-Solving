@@ -33,7 +33,7 @@ public class BOJ_1620_나는야포켓몬마스터이다솜 {
         for (int i = 0; i < M; i++) {
             sb.append(map.get(br.readLine()) + "\n");
         }
-        
+
         System.out.println(sb.toString());
     }
 }
