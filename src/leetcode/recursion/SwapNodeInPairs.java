@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.recursion;
 
 public class SwapNodeInPairs {
 
@@ -6,26 +6,28 @@ public class SwapNodeInPairs {
         ListNode listNode = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, null))));
 
         print(listNode);
-        swapPairs(listNode);
+        listNode = swapPairs(listNode);
         print(listNode);
-    }
 
+    }
     public static ListNode swapPairs(ListNode head) {
         if(head == null || head.next == null) return head;
 
         ListNode second = head.next;
-        ListNode third = second.next;
-
+        head.next = swapPairs(head.next.next);
         second.next = head;
-        head.next = swapPairs(third);
 
         return second;
     }
 
     public static void print(ListNode head) {
-        while (head != null) {
-            System.out.print(head.val + " ");
-            head = head.next;
+        ListNode current = head;
+        while (current != null) {
+            System.out.print(current.val);
+            if (current.next != null) {
+                System.out.print(" -> ");
+            }
+            current = current.next;
         }
         System.out.println();
     }
